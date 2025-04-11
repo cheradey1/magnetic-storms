@@ -4,15 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Сонячна Активність та Здоров'я</title>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style>
     	.sun-icon {
-        	width: 120px;
-        	height: 120px;
+        	width: 20px;
+        	height: 20px;
         	border-radius: 50%;
         	position: relative;
         	transition: background-color 0.5s ease, box-shadow 0.5s ease;
-        	margin: 1rem auto;
+        	margin: 0;
     	}
     	.sun-low {
         	background-color: #facc15;
@@ -97,13 +98,18 @@
         	0% { transform: rotate(0deg); }
         	100% { transform: rotate(360deg); }
     		}
+		.body-container {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+		}
+		
 		.body-visualization {
-			width: 120px;
-			height: 240px;
+			width: 80px;
+			height: 200px;
 			position: relative;
-			margin-right: 2rem;
-			background: url('icons/human.png') no-repeat center center;
-			background-size: contain;
+			background: url('icons/human.png') no-repeat bottom center;
+			background-size: auto 200px;
 		}
 		
 		.body-visualization img {
@@ -115,234 +121,267 @@
 		
 		.pain-point {
 			position: absolute;
-			width: 42px;
-			height: 42px;
+			width: 25px;
+			height: 25px;
 			background: rgba(239, 68, 68, 0.6);
 			border: 3px solid rgba(239, 68, 68, 0.8);
 			border-radius: 50%;
 			transform: translate(-50%, -50%) scale(1);
 			animation: pulse 2s infinite;
 			z-index: 10;
-			left: 50%; /* Центруємо по горизонталі */
 		}
 		
-		.pain-point.head { top: 3%; left: 45%; }
-		.pain-point.heart { top: 18%; left: 45%; }
-		.pain-point.stomach { top: 32%; left: 45%; }
-		.pain-point.arms-left { top: 25%; left: 20%; }
-		.pain-point.arms-right { top: 25%; left: 70%; }
-		.pain-point.legs-left { top: 60%; left: 30%; }
-		.pain-point.legs-right { top: 60%; left: 60%; }
-		
-		@keyframes pulse {
-			0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-			50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
-			100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-		}
-
-		.k-chart {
-			height: 300px;
-			position: relative;
-			margin: 40px;
-			background: #2d3748;
-			border-left: 2px solid #4b5563;
-			border-bottom: 2px solid #4b5563;
-			background-image: 
-				linear-gradient(to right, rgba(75, 85, 99, 0.2) 1px, transparent 1px),
-				linear-gradient(to top, rgba(75, 85, 99, 0.2) 1px, transparent 1px);
-			background-size: 
-				calc(100% / 8) 100%,  /* 8 вертикальних ліній для 3-годинних інтервалів */
-				100% calc(100% / 9);  /* 9 горизонтальних ліній для K-індексу */
-		}
-		
-		.k-scale {
-			position: absolute;
-			left: -30px;
-			bottom: -10px;
-			height: 100%;
-			display: flex;
-			flex-direction: column-reverse;
-			justify-content: space-between;
-		}
-		
-		.k-scale span {
-			font-size: 12px;
-			color: #9ca3af;
-			transform: translateY(50%);
-		}
-		
-		.time-scale {
-			position: absolute;
-			bottom: -25px;
-			left: 0;
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			color: #9ca3af;
-			font-size: 12px;
-		}
-		
-		.k-bar {
-			position: absolute;
-			bottom: 0;
-			width: 36px;
-			border-radius: 2px 2px 0 0;
-			transition: height 0.3s ease;
-		}
-		
-		.k-bar.low { background-color: #facc15; }
-		.k-bar.moderate { background-color: #f97316; }
-		.k-bar.high { background-color: #ef4444; }
-		
-		.k-scale {
-			display: flex;
-			flex-direction: column-reverse;
-			justify-content: space-between;
-			position: absolute;
-			left: -35px;
-			height: 100%;
-			padding: 5px 0;
-		}
-		
-		.k-scale::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 25px;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(to bottom, #4b5563 1px, transparent 1px);
-			background-size: 100% 33.33%;
-			z-index: -1;
-		}
-		.body-container {
-			display: flex;
-			align-items: center;
-			gap: 2rem;
-		}
-
-		.body-visualization {
-			width: 150px;
-			height: 300px;
-			position: relative;
-			background: url('icons/human.png') no-repeat center/contain;
-		}
-
-		.pain-point {
-			position: absolute;
-			width: 42px; /* Збільшено в 3 рази */
-			height: 42px; /* Збільшено в 3 рази */
-			background: rgba(239, 68, 68, 0.6);
-			border: 3px солід rgba(239, 68, 68, 0.8);
-			border-radius: 50%;
-			transform: translate(-50%, -50%);
-			animation: pulse 2s infinite;
-			z-index: 10;
-		}
-
-		/* Оновлені позиції точок болю */
-		.pain-point.head { top: 8%; left: 50%; }
-		.pain-point.heart { top: 25%; left: 50%; }
-		.pain-point.stomach { top: 40%; left: 50%; }
-		.pain-point.arms-left { top: 32%; left: 20%; }
-		.pain-point.arms-right { top: 32%; left: 80%; }
+		.pain-point.head { top: 5%; left: 50%; }
+		.pain-point.heart { top: 22%; left: 50%; }
+		.pain-point.stomach { top: 38%; left: 50%; }
+		.pain-point.arms-left { top: 30%; left: 20%; }
+		.pain-point.arms-right { top: 30%; left: 80%; }
 		.pain-point.legs-left { top: 70%; left: 35%; }
 		.pain-point.legs-right { top: 70%; left: 65%; }
-
-		/* Додаємо стилі для шкали тиску */
+		
 		.pressure-container {
+			margin-left: 2rem;
+			margin-right: 2rem;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			margin-left: 2rem;
 		}
-
-		.pressure-scale {
-			width: 40px;
-			height: 200px;
-			background: #374151;
-			position: relative;
-			border-left: 2px solid #4b5563;
-			background: linear-gradient(to top, 
-				#4b5563 1px, transparent 1px
-			);
-			background-size: 100% 10%;  /* Ділимо на 10 рівних частин */
-		}
-
-		.pressure-markers {
-			position: absolute;
-			left: -25px;
-			height: 100%;
-			display: flex;
-			flex-direction: column;  /* Змінили на column щоб 0 був внизу */
-			justify-content: space-between;
-			color: #9ca3af;
-			font-size: 12px;
-			padding: 5px 0;
-		}
-
-		.pressure-markers span {
-			transform: translateY(50%);
-		}
-
-		.pressure-bar {
-			position: absolute;
-			bottom: 0;
-			width: 15px;
-			transition: height 0.3s ease;
-		}
-
-		.pressure-bar.systolic { 
-			left: 5px; 
-			background: #ef4444; /* Червоний для верхнього */
-		}
-		.pressure-bar.diastolic { 
-			right: 5px;
-			background: #3b82f6; /* Синій для нижнього */
-		}
-		.pressure-label {
-			text-align: center;
-			color: #9ca3af;
-			font-size: 12px;
-			margin-top: 5px;
-		}
-
+		
 		.pressure-title {
 			color: #9ca3af;
 			font-size: 14px;
 			margin-bottom: 5px;
 			text-align: center;
 		}
-		/* Оновлюємо стилі для k-chart */
-		.k-chart {
-			height: 300px;
+		
+		.pressure-scale {
+			width: 40px;
+			height: 200px;
+			background: #374151;
 			position: relative;
-			margin: 40px;
+			border-left: 2px solid #4b5563;
+			background-image: 
+				linear-gradient(to top, #4b5563 1px, transparent 1px),
+				linear-gradient(to right, #4b5563 1px, transparent 1px);
+			background-size: 100% 10%, 100% 20px;
+		}
+		
+		.pressure-markers {
+			position: absolute;
+			left: -25px;
+			height: 100%;
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: space-between;
+			color: #9ca3af;
+			font-size: 12px;
+			padding: 5px 0;
+		}
+		
+		.pressure-markers span {
+			transform: translateY(50%);
+		}
+		
+		.pressure-bar {
+			position: absolute;
+			bottom: 0;
+			width: 15px;
+			transition: height 0.3s ease;
+			background: linear-gradient(to top, rgba(255,255,255,0.2), transparent);
+		}
+		
+		.pressure-bar.systolic { 
+			left: 5px; 
+			background-color: #ef4444;
+		}
+		
+		.pressure-bar.diastolic { 
+			right: 5px;
+			background-color: #3b82f6;
+		}
+		
+		.pressure-label {
+			text-align: center;
+			color: #9ca3af;
+			font-size: 12px;
+			margin-top: 5px;
+		}
+		
+		.pressure-bars {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+		
+		.weather-container {
+			margin-left: 2rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+			width: 100%;
+		}
+		
+		.weather-header {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 1rem;
+			width: 100%;
+		}
+		
+		.weather-header .sun-info {
+			display: flex;
+			flex-direction: row;
+			gap: 1rem;
+			align-items: center;
+		}
+		
+		.weather-header .sun-info p {
+			margin: 0;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		
+		.weather-icons {
+			display: grid;
+			grid-template-columns: repeat(8, 1fr);
+			gap: 0.5rem;
+			width: 100%;
+			margin-bottom: 1rem;
+		}
+		
+		.weather-icon-container {
+			text-align: center;
+			padding: 0.5rem;
+			background: rgba(75, 85, 99, 0.3);
+			border-radius: 0.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+		}
+		
+		.weather-details-row {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			color: #9ca3af;
+			font-size: 14px;
+			padding: 5px 0;
+			background: rgba(75, 85, 99, 0.3);
+			border-radius: 0.5rem;
+		}
+		
+		.sun-info {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		
+		/* Адаптивність */
+		@media (max-width: 1024px) {
+			.body-container {
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.body-visualization {
+				width: 70px;
+				height: 200px;
+			}
+			
+			.pain-point {
+				width: 23px;
+				height: 23px;
+			}
+		}
+		
+		@media (max-width: 768px) {
+			.body-visualization {
+				width: 70px;
+				height: 200px;
+			}
+			
+			.pain-point {
+				width: 23px;
+				height: 23px;
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.body-container {
+				gap: 1rem;
+			}
+			
+			.body-visualization {
+				width: 60px;
+				height: 200px;
+			}
+			
+			.pain-point {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		/* Додаємо стилі для кращої видимості на мобільних пристроях */
+		@media (hover: none) {
+			.pain-point {
+				border-width: 2px;
+			}
+		}
+
+		/* Зберігаємо пропорції при збільшенні */
+		@media (min-width: 1920px) {
+			.body-visualization {
+				width: 90px;
+				height: 200px;
+			}
+			
+			.pain-point {
+				width: 28px;
+				height: 28px;
+			}
+		}
+
+		.k-chart {
+			height: 100px;
+			position: relative;
 			background: #2d3748;
 			border-left: 2px solid #4b5563;
 			border-bottom: 2px solid #4b5563;
 			background-image: 
-				linear-gradient(to right, rgba(75, 85, 99, 0.2) 1px, transparent 1px),
-				linear-gradient(to top, rgba(75, 85, 99, 0.2) 1px, transparent 1px);
+				linear-gradient(to right, rgba(75, 85, 99, 0.3) 1px, transparent 1px),
+				linear-gradient(to top, rgba(75, 85, 99, 0.3) 1px, transparent 1px);
 			background-size: 
 				calc(100% / 8) 100%,  /* 8 вертикальних ліній для 3-годинних інтервалів */
-				100% calc(100% / 9);  /* 9 горизонтальних ліній для K-індексу */
+				100% calc(100% / 9);  /* 9 горизонтальних ліній для K-індексу (0-9) */
+			margin-bottom: 1rem;
 		}
 
 		.k-scale {
 			position: absolute;
 			left: -35px;
 			height: 100%;
+			width: 30px;
 			display: flex;
-			flex-direction: column;  /* Нуль внизу */
+			flex-direction: column-reverse;
 			justify-content: space-between;
-			padding: 5px 0;
 		}
 
 		.k-scale span {
 			font-size: 12px;
 			color: #9ca3af;
-			transform: translateY(50%);
+			text-align: right;
+			width: 100%;
+			height: calc(100% / 9);
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
 		}
 
 		.time-scale {
@@ -354,6 +393,124 @@
 			justify-content: space-between;
 			color: #9ca3af;
 			font-size: 12px;
+			padding: 0;
+		}
+
+		.time-scale span {
+			position: relative;
+			padding-top: 5px;
+			width: calc(100% / 8);
+			text-align: center;
+		}
+
+		.k-bar {
+			position: absolute;
+			bottom: 0;
+			width: calc(100% / 8);
+			border-radius: 2px 2px 0 0;
+			transition: height 0.3s ease;
+			box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+		}
+
+		.k-bar.low { 
+			background-color: #facc15;
+			background: linear-gradient(to top, #facc15, #fbbf24);
+		}
+		.k-bar.moderate { 
+			background-color: #f97316;
+			background: linear-gradient(to top, #f97316, #fb923c);
+		}
+		.k-bar.high { 
+			background-color: #ef4444;
+			background: linear-gradient(to top, #ef4444, #f87171);
+		}
+
+		#forecast-container {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 2px;
+		}
+
+		.forecast-card {
+			min-width: 50px;
+			flex: 0 0 auto;
+			background-color: #4b5563;
+			border-radius: 0.5rem;
+			padding: 2px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			min-height: 30px;
+		}
+
+		.forecast-card .day-header {
+			font-size: 8px;
+			font-weight: bold;
+			margin-bottom: 2px;
+		}
+
+		.forecast-card .k-index-value {
+			font-size: 10px;
+			font-weight: bold;
+		}
+
+		.forecast-card .k-index-bar {
+			height: 4px;
+			width: 100%;
+			border-radius: 2px;
+			margin-top: 2px;
+		}
+
+		.forecast-card .k-index-bar.low { background-color: #facc15; }
+		.forecast-card .k-index-bar.moderate { background-color: #f97316; }
+		.forecast-card .k-index-bar.high { background-color: #ef4444; }
+
+		.forecast-card .text-sm {
+			font-size: 6px;
+		}
+
+		.forecast-card .text-lg {
+			font-size: 10px;
+		}
+
+		.forecast-card .text-xs {
+			font-size: 4px;
+		}
+
+		.sun-container {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+
+		.sun-info {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.weekly-forecast {
+			width: 100%;
+			margin-bottom: 1rem;
+			background: rgba(75, 85, 99, 0.3);
+			border-radius: 0.5rem;
+			padding: 0.5rem;
+		}
+
+		.weekly-forecast h2 {
+			display: none; /* Приховуємо заголовок */
+		}
+
+		.weekly-forecast p {
+			display: none; /* Приховуємо підзаголовок */
+		}
+
+		@keyframes pulse {
+			0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+			50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+			100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
 		}
 	</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -380,7 +537,6 @@
         	<div class="flex flex-col md:flex-row items-center justify-around mb-4">
 				<div class="body-container">
 					<div class="body-visualization">
-						<!-- Точки болю відповідно до симптомів -->
 						<div class="pain-point head" title="Головний біль"></div>
 						<div class="pain-point heart" title="Серцевий біль"></div>
 						<div class="pain-point stomach" title="Нудота"></div>
@@ -390,16 +546,11 @@
 						<div class="pain-point legs-right" title="Біль у ногах"></div>
 					</div>
 					
-					<!-- Шкала тиску -->
 					<div class="pressure-container">
 						<div class="pressure-title">Тиск людини</div>
 						<div class="pressure-scale">
 							<div class="pressure-markers">
-								<span>200</span>
-								<span>150</span>
-								<span>100</span>
-								<span>50</span>
-								<span>0</span>
+								<!-- Видаляємо цифри -->
 							</div>
 							<div class="pressure-bars">
 								<div class="pressure-bar systolic"></div>
@@ -410,25 +561,41 @@
 							<span class="systolic-value">120</span>/<span class="diastolic-value">80</span>
 						</div>
 					</div>
+
+					<div class="weather-container">
+						<div class="weather-header">
+							<div id="sun-visualization">
+								<div id="sun-icon" class="sun-icon"></div>
+							</div>
+							<div class="sun-info">
+								<p>
+									<ion-icon name="sunny-outline" class="text-yellow-400"></ion-icon>
+									<span class="font-semibold">K-індекс:</span>
+									<span id="k-index" class="text-xl font-bold">...</span>
+									<span class="text-sm text-gray-400">/ 9</span>
+								</p>
+								<p>
+									<ion-icon name="person-outline" class="text-green-400"></ion-icon>
+									<span class="font-semibold">G-клас:</span>
+									<span id="g-class" class="text-lg font-bold">...</span>
+									<span id="g-class-description" class="text-sm text-gray-400"></span>
+								</p>
+							</div>
+						</div>
+						<div class="weekly-forecast">
+							<div id="forecast-container"></div>
+						</div>
+						<div class="weather-icons">
+							<!-- Іконки погоди будуть додані через JavaScript -->
+						</div>
+						<div class="weather-details-row">
+							<span>5°C</span>
+							<span>Опади: 25%</span>
+							<span>Вологість: 58%</span>
+							<span>Вітер: 19 км/год</span>
+						</div>
+					</div>
 				</div>
-            	<div id="sun-visualization" class="mb-4 md:mb-0">
-                	<div id="sun-icon" class="sun-icon">
-                	</div>
-            	</div>
-            	<div class="text-center md:text-left">
-                	<p class="text-lg mb-2">
-                    	<ion-icon name="sunny-outline" class="text-yellow-400 mr-1"></ion-icon>
-                    	<span class="font-semibold">K-індекс:</span>
-                    	<span id="k-index" class="text-2xl font-bold">...</span>
-                    	<span class="text-sm text-gray-400">/ 9</span>
-                	</p>
-                	<p class="text-lg">
-                    	<ion-icon name="person-outline" class="text-green-400 mr-1"></ion-icon>
-                    	<span class="font-semibold">G-клас:</span>
-                    	<span id="g-class" class="text-xl font-bold">...</span>
-                    	<span id="g-class-description" class="text-sm text-gray-400"></span>
-                	</p>
-            	</div>
         	</div>
         	<div id="health-info" class="health-info">
             	<h3 class="text-lg font-semibold mb-2">Вплив на самопочуття та поради</h3>
@@ -452,114 +619,6 @@
         	<div id="loading-indicator" class="text-center">
             	<div class="loader"></div>
             	<p class="text-sm text-gray-400">Завантаження даних...</p>
-        	</div>
-    	</div>
-   	 
-    	<!-- 3-годинний прогноз K-індексу -->
-    	<div class="card">
-        	<h2 class="text-xl font-semibold mb-4 text-center">3-годинний прогноз K-індексу на 3 дні</h2>
-        	<p class="text-sm text-gray-500 text-center mb-2">За даними NOAA SWPC</p>
-       	 
-        	<div id="hourly-forecast" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            	<!-- День 1 -->
-            	<div class="card bg-gray-700">
-                	<h3 id="day1-title" class="text-lg font-medium mb-2 text-center">День 1</h3>
-                	<div class="k-chart">
-						<div class="k-scale">
-							<span>9</span>
-							<span>8</span>
-							<span>7</span>
-							<span>6</span>
-							<span>5</span>
-							<span>4</span>
-							<span>3</span>
-							<span>2</span>
-							<span>1</span>
-							<span>0</span>
-						</div>
-							<div class="chart-bars"></div>
-						<div class="time-scale">
-							<span>0</span>
-							<span>3</span>
-							<span>6</span>
-							<span>9</span>
-							<span>12</span>
-							<span>15</span>
-							<span>18</span>
-							<span>21</span>
-							<span>24</span>
-						</div>
-					</div>
-            	</div>
-           	 
-            	<!-- День 2 -->
-            	<div class="card bg-gray-700">
-                	<h3 id="day2-title" class="text-lg font-medium mb-2 text-center">День 2</h3>
-                	<div class="k-chart">
-						<div class="k-scale">
-							<span>9</span>
-							<span>8</span>
-							<span>7</span>
-							<span>6</span>
-							<span>5</span>
-							<span>4</span>
-							<span>3</span>
-							<span>2</span>
-							<span>1</span>
-							<span>0</span>
-						</div>
-							<div class="chart-bars"></div>
-						<div class="time-scale">
-							<span>0</span>
-							<span>3</span>
-							<span>6</span>
-							<span>9</span>
-							<span>12</span>
-							<span>15</span>
-							<span>18</span>
-							<span>21</span>
-							<span>24</span>
-						</div>
-					</div>
-            	</div>
-           	 
-            	<!-- День 3 -->
-            	<div class="card bg-gray-700">
-                	<h3 id="day3-title" class="text-lg font-medium mb-2 text-center">День 3</h3>
-                	<div class="k-chart">
-						<div class="k-scale">
-							<span>9</span>
-							<span>8</span>
-							<span>7</span>
-							<span>6</span>
-							<span>5</span>
-							<span>4</span>
-							<span>3</span>
-							<span>2</span>
-							<span>1</span>
-							<span>0</span>
-						</div>
-							<div class="chart-bars"></div>
-						<div class="time-scale">
-							<span>0</span>
-							<span>3</span>
-							<span>6</span>
-							<span>9</span>
-							<span>12</span>
-							<span>15</span>
-							<span>18</span>
-							<span>21</span>
-							<span>24</span>
-						</div>
-					</div>
-            	</div>
-        	</div>
-    	</div>
-   	 
-    	<div class="card">
-        	<h2 class="text-xl font-semibold mb-4 text-center">Прогноз K-індексу на тиждень</h2>
-        	<p class="text-sm text-gray-500 text-center mb-2">NOAA Kp index forecast</p>
-        	<div id="forecast-container" class="grid grid-cols-3 gap-3 text-center">
         	</div>
     	</div>
    	 
@@ -690,22 +749,23 @@
             	const forecastDate = new Date(today);
             	forecastDate.setDate(today.getDate() + index);
             	const dayName = daysOfWeek[dayIndex];
-            	const dateStr = forecastDate.toLocaleDateString('uk-UA', { day: 'numeric', month: 'numeric', year: 'numeric' });
             	const card = document.createElement('div');
             	card.className = 'forecast-card';
+            	
+            	// Визначаємо клас для кольору полоски
+            	let barClass = 'low';
+            	if (kIndex > 5) barClass = 'high';
+            	else if (kIndex > 3) barClass = 'moderate';
+            	
             	card.innerHTML = `
-                	<div>
-                    	<p class="text-sm font-medium">${dayName}</p>
-                    	<p class="text-xs text-gray-400 mb-1">${dateStr}</p>
-                    	<p class="text-lg font-bold">${kIndex}</p>
-                	</div>
-                	<div class="k-index-bar"></div>
+                	<div class="day-header">${dayName}</div>
+                	<div class="k-index-value">K-і=${kIndex}</div>
+                	<div class="k-index-bar ${barClass}"></div>
             	`;
             	card.addEventListener('click', () => {
-                	updateCurrentActivity(kIndex, dateStr);
+                	updateCurrentActivity(kIndex, forecastDate.toLocaleDateString('uk-UA', { day: 'numeric', month: 'numeric', year: 'numeric' }));
             	});
             	forecastContainer.appendChild(card);
-            	setKIndexBarColor(card.querySelector('.k-index-bar'), kIndex);
             	dayIndex = (dayIndex + 1) % 7;
         	});
     	}
@@ -713,6 +773,11 @@
     	// Функція для отримання 3-денного прогнозу
     	async function fetchThreeDayForecast() {
         	try {
+            	const cachedData = getCachedData('three-day-forecast');
+            	if (cachedData) {
+                	return cachedData;
+            	}
+            	
             	const response = await fetch('https://services.swpc.noaa.gov/text/3-day-forecast.txt');
            	 
             	if (!response.ok) {
@@ -720,28 +785,38 @@
             	}
            	 
             	const textData = await response.text();
-            	// Аналіз даних із текстового файлу для отримання дат прогнозу
-           	 
-            	// Оновлюємо заголовки днів (для прикладу, можна удосконалити розбір дат з отриманого тексту)
+            	
+            	// Кешуємо отримані дані
+            	cacheData('three-day-forecast', textData, 180); // Кешуємо на 3 години
+            	
+            	// Оновлюємо заголовки днів тільки якщо елементи існують
             	const today = new Date();
             	const tomorrow = new Date(today);
             	tomorrow.setDate(today.getDate() + 1);
             	const dayAfterTomorrow = new Date(today);
             	dayAfterTomorrow.setDate(today.getDate() + 2);
-           	 
+            	
             	const formatDate = (date) => {
                 	return date.toLocaleDateString('uk-UA', {day: 'numeric', month: 'long'});
             	};
            	 
-            	day1Title.textContent = formatDate(today);
-            	day2Title.textContent = formatDate(tomorrow);
-            	day3Title.textContent = formatDate(dayAfterTomorrow);
+            	// Перевіряємо наявність елементів перед оновленням
+            	if (day1Title) day1Title.textContent = formatDate(today);
+            	if (day2Title) day2Title.textContent = formatDate(tomorrow);
+            	if (day3Title) day3Title.textContent = formatDate(dayAfterTomorrow);
            	 
             	return textData;
         	} catch (error) {
             	console.error("Помилка при отриманні 3-денного прогнозу:", error);
-            	errorContainer.classList.remove('hidden');
-            	errorMessage.textContent = "Помилка при отриманні 3-денного прогнозу. " + error.message;
+            	
+            	// Якщо є офлайн кеш, використовуємо його
+            	const cachedData = getCachedData('three-day-forecast');
+            	if (cachedData) {
+                	console.log("Використовуємо кешовані дані для 3-денного прогнозу");
+                	return cachedData;
+            	}
+            	
+            	// Якщо немає кешу, повертаємо базові дані
             	return null;
         	}
     	}
@@ -750,6 +825,11 @@
         	try {
             	loadingIndicator.classList.remove('hidden');
             	errorContainer.classList.add('hidden');
+            	
+            	// Перевіряємо, чи ми онлайн
+            	if (!navigator.onLine) {
+                	throw new Error("Ви офлайн. Використовуємо кешовані дані.");
+            	}
            	 
             	const res = await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');
            	 
@@ -758,6 +838,10 @@
             	}
            	 
             	const data = await res.json();
+            	
+            	// Кешуємо отримані дані
+            	cacheData('k-index-data', data, 180); // Кешуємо на 3 години
+            	
             	const today = new Date().toISOString().slice(0, 10);
             	const todayData = data.filter(d => d.time_tag.includes(today)).map(d => d.kp_index);
            	 
@@ -776,36 +860,78 @@
             	updateCurrentActivity(averageK, todayDate);
            	 
             	// Використовуємо реальні дані для 3 днів з API і для решти дні моделюємо
-            	// Дані прогнозу
-           	 
             	const forecastData = [3, 4, 3, 2, 2, 3, 2];
-            	// Замінюємо першим значенням середній K-індекс сьогодні
             	forecastData[0] = averageK;
             	displayForecast(forecastData);
            	 
             	// Оновлюємо таймстамп останнього оновлення
-            	lastUpdatedElement.textContent = new Date().toLocaleString('uk-UA');
+            	if (lastUpdatedElement) {
+                	lastUpdatedElement.textContent = new Date().toLocaleString('uk-UA');
+            	}
            	 
             	// Приховуємо індикатор завантаження
             	loadingIndicator.classList.add('hidden');
             	showStormNotification(averageK);
-
-				// Додаємо тестові дані для 3-денного прогнозу
-				const threeDayForecast = [
-					[2, 3, 4, 3, 2, 3, 4, 3], // День 1
-					[3, 4, 5, 4, 3, 2, 3, 4], // День 2
-					[4, 3, 2, 3, 4, 5, 4, 3]  // День 3
-				];
-				
-				// Оновлюємо графіки для кожного дня з правильним зміщенням дати
-				const days = document.querySelectorAll('.card.bg-gray-700');
-				days.forEach((day, index) => {
-					updateHourlyChart(day, threeDayForecast[index], index);
-				});
+            	
+            	// Додаємо тестові дані для 3-денного прогнозу
+            	const threeDayForecast = [
+                	[2, 3, 4, 3, 2, 3, 4, 3],
+                	[3, 4, 5, 4, 3, 2, 3, 4],
+                	[4, 3, 2, 3, 4, 5, 4, 3]
+            	];
+            	
+            	// Оновлюємо графіки для кожного дня з правильним зміщенням дати
+            	const days = document.querySelectorAll('.card.bg-gray-700');
+            	days.forEach((day, index) => {
+                	updateHourlyChart(day, threeDayForecast[index], index);
+            	});
         	} catch (e) {
             	console.error('Помилка завантаження даних:', e);
+            	
+            	// Показуємо помилку користувачу
             	errorContainer.classList.remove('hidden');
-            	errorMessage.textContent = "Не вдалося завантажити дані: " + e.message;
+            	errorMessage.textContent = e.message;
+            	
+            	// Якщо є кешовані дані, використовуємо їх
+            	const cachedData = getCachedData('k-index-data');
+            	if (cachedData) {
+                	console.log("Використовуємо кешовані дані");
+                	// Обробляємо кешовані дані
+                	try {
+                    	const today = new Date().toISOString().slice(0, 10);
+                    	const todayData = cachedData.filter(d => d.time_tag.includes(today)).map(d => d.kp_index);
+                    	
+                    	if (todayData.length > 0) {
+                        	const averageK = Math.round(todayData.reduce((a, b) => a + b, 0) / todayData.length);
+                        	const todayDate = new Date().toLocaleDateString('uk-UA', { day: 'numeric', month: 'numeric', year: 'numeric' });
+                        	
+                        	// Оновлюємо елементи на сторінці
+                        	updateDate(todayDate);
+                        	updateCurrentActivity(averageK, todayDate);
+                        	
+                        	const forecastData = [3, 4, 3, 2, 2, 3, 2];
+                        	forecastData[0] = averageK;
+                        	displayForecast(forecastData);
+                        	
+                        	errorMessage.textContent += " Відображаються кешовані дані.";
+                    	}
+                	} catch (cacheError) {
+                    	console.error('Помилка обробки кешованих даних:', cacheError);
+                	}
+            	} else {
+                	// Якщо немає кешованих даних, встановлюємо значення за замовчуванням
+                	const defaultKIndex = 3;
+                	const todayDate = new Date().toLocaleDateString('uk-UA', { day: 'numeric', month: 'numeric', year: 'numeric' });
+                	
+                	updateDate(todayDate);
+                	updateCurrentActivity(defaultKIndex, todayDate);
+                	
+                	const forecastData = [3, 4, 3, 2, 2, 3, 2];
+                	displayForecast(forecastData);
+                	
+                	errorMessage.textContent += " Відображаються стандартні дані.";
+            	}
+            	
             	loadingIndicator.classList.add('hidden');
         	}
     	}
@@ -890,12 +1016,10 @@
 				const height = (value / 9) * 100;
 				
 				// Позиціонування бару (кожні 3 години)
-				const width = 11; // Ширина одного бару (у відсотках)
-				const left = (i * 3 * 100) / 24; // Позиція по X (24 години)
+				const left = (i * 100) / 8; // Рівномірне розподілення по ширині
 				
 				bar.style.height = `${height}%`;
 				bar.style.left = `${left}%`;
-				bar.style.width = `${width}%`;
 				
 				// Колір в залежності від значення
 				if (value <= 3) bar.classList.add('low');
@@ -935,7 +1059,7 @@
     	if ('serviceWorker' in navigator) {
         	navigator.serviceWorker.register('/sw.js')
             	.then(registration => {
-                	console.log('ServiceWorker registration successful');
+                	console.log('ServiceWorker registration successful with scope: ', registration.scope);
             	})
             	.catch(err => {
                 	console.log('ServiceWorker registration failed: ', err);
@@ -955,15 +1079,6 @@
         	});
     	}
 
-    	function showStormNotification(kIndex) {
-        	if (Notification.permission === "granted" && kIndex >= 5) {
-            	new Notification("Увага! Геомагнітна буря", {
-                	body: `Поточний K-індекс: ${kIndex}. Можливий вплив на самопочуття.`,
-                	icon: "/icons/storm-icon.png"
-            	});
-        	}
-    	}
-
 		// Оновлюємо відображення точок болю
 		function updateBodyPainPoints(kIndex) {
 			const painPoints = document.querySelectorAll('.pain-point');
@@ -972,28 +1087,16 @@
 			// Оновлюємо видимість точок болю базуючись на симптомах
 			painPoints.forEach(point => {
 				const type = point.classList[1];
-				if (type === 'head') {
-					point.style.display = shouldShowPainPoint(type, symptoms) ? 'block' : 'none';
+				if (type === 'head' && symptoms.toLowerCase().includes('головний біль')) {
+					point.style.display = 'block';
 				} else {
 					point.style.display = 'none';
 				}
 			});
 
 			// Оновлюємо показники тиску
-			const pressureMatch = symptoms.match(/тиск (\d+)\/(\д+)/);
-			if (pressureMatch) {
-				const [_, systolic, diastolic] = pressureMatch;
-				updatePressureBars(systolic, diastolic);
-			}
-		}
-
-		function shouldShowPainPoint(type, symptoms) {
-			// Показуємо точку болю голови тільки при явній згадці про головний біль
-			if (type === 'head') {
-				return symptoms.toLowerCase().includes('головний біль');
-			}
-			// Інші точки не показуємо взагалі, так як вони не використовуються
-			return false;
+			const pressure = calculatePressure(kIndex);
+			updatePressureBars(pressure.systolic, pressure.diastolic);
 		}
 
 		function updatePressureBars(systolic, diastolic) {
@@ -1002,12 +1105,16 @@
 			const systolicValue = document.querySelector('.systolic-value');
 			const diastolicValue = document.querySelector('.diastolic-value');
 			
-			// Розраховуємо висоту як відсоток від максимального значення (200)
-			const systolicHeight = (systolic / 200) * 100;
-			const diastolicHeight = (diastolic / 200) * 100;
+			// Максимальна висота шкали - 200px
+			const maxHeight = 200;
 			
-			systolicBar.style.height = `${systolicHeight}%`;
-			diastolicBar.style.height = `${diastolicHeight}%`;
+			// Розраховуємо висоту в пікселях
+			const systolicHeight = (systolic / 200) * maxHeight;
+			const diastolicHeight = (diastolic / 200) * maxHeight;
+			
+			// Встановлюємо висоту стовпчиків
+			systolicBar.style.height = `${systolicHeight}px`;
+			diastolicBar.style.height = `${diastolicHeight}px`;
 			
 			// Оновлюємо значення
 			systolicValue.textContent = systolic;
@@ -1036,7 +1143,271 @@
 			
 			return { systolic, diastolic };
 		}
-</script>
+
+		function updateWeatherIcons(weatherData) {
+			const weatherIconsContainer = document.querySelector('.weather-icons');
+			weatherIconsContainer.innerHTML = '';
+
+			// Додаємо іконки погоди для кожних 3 годин
+			const icons = [
+				{ icon: '🌙', time: '00:00', temp: '-2°' },
+				{ icon: '🌙', time: '03:00', temp: '-4°' },
+				{ icon: '🌙', time: '06:00', temp: '-4°' },
+				{ icon: '⛅', time: '09:00', temp: '-1°' },
+				{ icon: '☀️', time: '12:00', temp: '3°' },
+				{ icon: '⛅', time: '15:00', temp: '6°' },
+				{ icon: '☁️', time: '18:00', temp: '4°' },
+				{ icon: '🌙', time: '21:00', temp: '1°' }
+			];
+
+			icons.forEach(item => {
+				const iconDiv = document.createElement('div');
+				iconDiv.className = 'weather-icon-container text-center';
+				iconDiv.innerHTML = `
+					<div class="text-2xl mb-1">${item.icon}</div>
+					<div class="text-xs text-gray-400">${item.time}</div>
+					<div class="text-sm">${item.temp}</div>
+				`;
+				weatherIconsContainer.appendChild(iconDiv);
+			});
+		}
+
+		// Викликаємо функцію при завантаженні сторінки
+		document.addEventListener('DOMContentLoaded', () => {
+			updateWeatherIcons();
+		});
+
+		// Функція для створення службового воркера, якщо він не існує
+		function createServiceWorker() {
+			// Цей код виконується лише при першому завантаженні
+			if (!('serviceWorker' in navigator)) return;
+			
+			try {
+				// Перевіряємо наявність файлу sw.js
+				fetch('/sw.js')
+					.catch(() => {
+						console.log('Creating service worker file');
+						// Створюємо простий службовий воркер для кешування
+						const swContent = `
+						const CACHE_NAME = 'magnetic-storms-cache-v1';
+						const urlsToCache = [
+							'/',
+							'/index.html',
+							'/icons/human.png',
+							'/icons/storm-icon.png',
+							'/manifest.json'
+						];
+
+						// При установці - кешуємо основні файли
+						self.addEventListener('install', event => {
+							event.waitUntil(
+								caches.open(CACHE_NAME)
+									.then(cache => {
+										return cache.addAll(urlsToCache);
+									})
+							);
+						});
+
+						// При активації - видаляємо старі кеші
+						self.addEventListener('activate', event => {
+							event.waitUntil(
+								caches.keys().then(cacheNames => {
+									return Promise.all(
+										cacheNames.map(cacheName => {
+											if (cacheName !== CACHE_NAME) {
+												return caches.delete(cacheName);
+											}
+										})
+									);
+								})
+							);
+						});
+
+						// Перехоплюємо запити і відповідаємо з кешу або мережі
+						self.addEventListener('fetch', event => {
+							event.respondWith(
+								caches.match(event.request)
+									.then(response => {
+										// Якщо ресурс знайдено в кеші - повертаємо його
+										if (response) {
+											return response;
+										}
+										
+										// Інакше робимо мережевий запит
+										return fetch(event.request)
+											.then(response => {
+												// Перевіряємо, чи запит успішний
+												if (!response || response.status !== 200 || response.type !== 'basic') {
+													return response;
+												}
+												
+												// Клонуємо відповідь, щоб використати двічі
+												const responseToCache = response.clone();
+												
+												// Додаємо відповідь в кеш
+												caches.open(CACHE_NAME)
+													.then(cache => {
+														cache.put(event.request, responseToCache);
+													});
+												
+												return response;
+											})
+											.catch(() => {
+												// Якщо офлайн, пробуємо повернути кешований запит на головну
+												if (event.request.mode === 'navigate') {
+													return caches.match('/');
+												}
+												return new Response('Offline content not available');
+											});
+									})
+							);
+						});
+						
+						// Обробка push-повідомлень
+						self.addEventListener('push', event => {
+							let data = { title: 'Магнітна активність', body: 'Оновлення даних про магнітну активність.' };
+							
+							try {
+								if (event.data) {
+									data = JSON.parse(event.data.text());
+								}
+							} catch (e) {
+								console.error('Error parsing push data', e);
+							}
+							
+							const options = {
+								body: data.body,
+								icon: '/icons/storm-icon.png',
+								badge: '/icons/storm-icon.png',
+								vibrate: [100, 50, 100],
+								data: {
+									dateOfArrival: Date.now(),
+									primaryKey: 1
+								}
+							};
+							
+							event.waitUntil(
+								self.registration.showNotification(data.title, options)
+							);
+						});
+						
+						// Обробка кліків по повідомленням
+						self.addEventListener('notificationclick', event => {
+							event.notification.close();
+							
+							event.waitUntil(
+								clients.matchAll({ type: 'window' })
+									.then(clientList => {
+										// Перевіряємо, чи є відкриті вікна додатку
+										for (const client of clientList) {
+											if (client.url === '/' && 'focus' in client) {
+												return client.focus();
+											}
+										}
+												
+										// Якщо немає - відкриваємо нове вікно
+										if (clients.openWindow) {
+											return clients.openWindow('/');
+										}
+									})
+							);
+						});
+						`;
+						
+						// Створюємо файл sw.js
+						const blob = new Blob([swContent], { type: 'application/javascript' });
+						const elem = document.createElement('a');
+						elem.href = URL.createObjectURL(blob);
+						elem.download = 'sw.js';
+						document.body.appendChild(elem);
+						elem.click();
+						document.body.removeChild(elem);
+						
+						alert('Завантажте файл sw.js і розмістіть його в корені вашого сайту для активації PWA функціоналу.');
+					});
+			} catch (error) {
+				console.error('Error creating service worker:', error);
+			}
+		}
+
+		// Функція для створення manifest.json, якщо його немає
+		function createManifest() {
+			try {
+				// Перевіряємо наявність файлу manifest.json
+				fetch('/manifest.json')
+					.catch(() => {
+						console.log('Creating manifest file');
+						// Створюємо простий manifest.json
+						const manifestContent = `
+						{
+							"name": "Сонячна Активність та Здоров'я",
+							"short_name": "Магнітні Бурі",
+							"description": "Додаток для моніторингу сонячної активності та можливого впливу на здоров'я",
+							"start_url": "/",
+							"display": "standalone",
+							"background_color": "#1f2937",
+							"theme_color": "#374151",
+							"icons": [
+								{
+									"src": "/icons/icon-192x192.png",
+									"sizes": "192x192",
+									"type": "image/png"
+								},
+								{
+									"src": "/icons/icon-512x512.png",
+									"sizes": "512x512",
+									"type": "image/png"
+								}
+							]
+						}
+						`;
+						
+						// Створюємо файл manifest.json
+						const blob = new Blob([manifestContent], { type: 'application/json' });
+						const elem = document.createElement('a');
+						elem.href = URL.createObjectURL(blob);
+						elem.download = 'manifest.json';
+						document.body.appendChild(elem);
+						elem.click();
+						document.body.removeChild(elem);
+						
+						alert('Завантажте файл manifest.json і розмістіть його в корені вашого сайту для активації PWA функціоналу.');
+					});
+			} catch (error) {
+				console.error('Error creating manifest:', error);
+			}
+		}
+
+		// Викликаємо функції при завантаженні сторінки
+		document.addEventListener('DOMContentLoaded', () => {
+			updateWeatherIcons();
+			updateHourBlocks();
+			requestNotificationPermission();
+			
+			// Перевіряємо необхідність створення PWA файлів
+			createServiceWorker();
+			createManifest();
+		});
+
+		function showStormNotification(kIndex) {
+			if (Notification.permission === "granted" && kIndex >= 5) {
+				new Notification("Увага! Геомагнітна буря", {
+					body: `Поточний K-індекс: ${kIndex}. Можливий вплив на самопочуття.`,
+					icon: "/icons/storm-icon.png"
+				});
+			}
+		}
+	</script>
+	<!-- Відеореклама -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+		 data-ad-slot="YOUR_VIDEO_AD_SLOT_ID"
+		 data-ad-format="auto"
+		 data-full-width-responsive="true"></ins>
+	<script>
+		 (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </body>
 </html>
 
